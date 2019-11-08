@@ -1,0 +1,20 @@
+{
+  "HOME": {
+    "TITLE": "Outils anthropométriques basés sur le Web"
+  },
+  "SITE-HEADER": {
+    "TITLE": "Outils anthropométriques basés sur le Web",
+    "SELECT": "Changer la langue"
+  },
+  "SITE-SUB-NAVIGATION": {
+    "ANALYZE": "analyze",
+    "USER-DATA-NG": "User Data (Ng)-f"
+  },
+  "ANALYZE": {
+    "TITLE-MAIN": "analyze Data - f",
+    "PAR-MAIN": "As part of the Government's commitment to providing accessible online information and services to the public and to maintaining trust and confidence in Government of Canada websites, it was announced in January 2010 that the Common Look and Feel for the Internet 2.0 Standard (CLF 2.0), was being updated.",
+    "PAR1-TITLE": "1D - Histogram - f",
+    "PAR1": "Through collaboration with the Government's Web communities, the current four components of the Common Look and Feel 2.0 standards will be replaced by the following three new components:",
+    "PAR1-LINK": "Begin 1D Analysis - f"
+  }
+}

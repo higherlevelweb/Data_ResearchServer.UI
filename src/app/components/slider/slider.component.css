@@ -1,0 +1,28 @@
+.chart-percentile-slider {
+    margin: 30px 10px;
+}
+
+.chart-percentile-slider-title-right{
+    float: right;
+    font-weight: bold;
+}
+
+.chart-percentile-slider-title-left{
+    font-weight: bold;
+}
+
+.slider-percentile-value {
+    font-weight: 100;
+    }
+
+.chart-percentile-slider .noUi-horizontal .noUi-handle {
+    border-color: rgba(0,0,255,0.9);
+}
+
+.chart-percentile-slider input{
+    width: 30px;
+    font-size: 15px;
+    border-bottom: 1px solid #bbb;
+    padding-left: 2px;
+}
+  

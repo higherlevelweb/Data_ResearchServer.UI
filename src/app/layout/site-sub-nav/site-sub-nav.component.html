@@ -1,0 +1,15 @@
+<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg"><h2>Secondary menu</h2>
+  <ul class="list-group menu list-unstyled">
+    <li [routerLinkActive]="'active-list-group'"><a class="list-group-item item" [routerLink]="['overview']">Overview</a>
+      <ul class="list-group list-unstyled" id="overview">
+        <li><a class="list-group-item" routerLink="overview/information">Information and Use Cases</a></li>
+      </ul>
+    </li>
+    <li [routerLinkActive]="'active-list-group'"><a class="list-group-item item" [routerLink]="['analyze']">Analyze</a>
+      <ul class="list-group list-unstyled" id="analyze">
+          <li><a class="list-group-item" routerLink="analyze/1d-histogram" routerLinkActive="active-list-item">{{ 'SITE-SUB-NAVIGATION.ONE-D-HISTOGRAM' | translate }}</a></li>
+      </ul>
+    </li>
+
+  </ul>
+  </nav>

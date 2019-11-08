@@ -1,0 +1,1389 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+html{ margin: 0; height: 100%;}
+
+a:visited {
+    color: #7834bc;
+}
+
+a {
+    text-decoration: underline;
+    color: #295376;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.h1, h1 {
+    font-size: 34px;
+}
+
+h1 {
+    -webkit-margin-before: 0em;
+    margin-top: 0px;
+}
+
+body {
+    background-image: url(/assets/images/header-leaf.jpg),url(/assets/images/header-bg.jpg);
+    background-repeat: no-repeat,repeat-x;
+    background-position: center 2.6em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.4375;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    src: url(/assets/fonts/glyphicons-halflings-regular.eot);
+    src: url(/assets/fonts/glyphicons-halflings-regular.eot) format('embedded-opentype'),
+         url(/assets/fonts/glyphicons-halflings-regular.woff) format('woff'),
+         url(/assets/fonts/glyphicons-halflings-regular.ttf) format('truetype'),
+         url(/assets/fonts/glyphicons-halflings-regular.svg) format('svg');
+
+}
+
+hr {
+    margin: 40px 0px;
+}
+
+#main{
+    float: right;
+    padding-right: 25px;
+    padding-left: 15px;
+    padding-top: 15px;
+    min-height: 620px;
+}
+
+#main-page {
+    min-height: 78%;
+    background: #fff;
+}
+
+#app-page {
+    position: relative;
+    background: #fff;
+    width: 850px;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+#app-page .full-page-sub-nav-view {
+    width: 850px;
+    float: right;
+}
+
+#app-page .full-page-width-view{
+    width: 1130px;
+    float: right;
+}
+
+#app-page.page-page-view {
+    width: 1150px;
+    float: left;
+}
+
+.site-footer {
+    margin-top: 15px;
+}
+
+#frame {
+    height:700px;
+}
+
+#language-selector {
+    padding-top: 10px;
+    margin-right: 15px;
+}
+
+#wb-sec .list-group li {
+    display: none;
+}
+
+.full-page-view #wb-sec .list-group li{
+    display: block;
+}
+
+#wb-sec li.active-list-group {
+    display: block;
+}
+
+#wb-sec .list-group li ul li {
+    display: block;
+}
+
+#wb-sec{
+    position: absolute;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 20px;
+    padding-bottom: 2em;
+    font-size:90%
+}
+
+.full-page-view #wb-sec {
+    position: absolute;
+    left: -300px;
+    top: -25px;
+    width: 290px;
+}
+
+#wb-sec .list-group a.list-group-item {
+    background: #fff;
+    color: #555;
+    border-radius: 0;
+    margin-top: -1px;
+    text-decoration: none;
+}
+
+#wb-sec .list-group .list-group .list-group-item {
+    background: #e6e6e6;
+    color: #000;
+    padding-left: 1.8em;
+}
+
+.list-inline, .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+#main-container{
+    background: #fff;
+    display: block;
+    float: left;
+    border-right: #ccc 1px solid;
+    border-left: #ccc 1px solid;
+}
+
+.row:after, .row:before {
+    content: " ";
+    display: table;
+}
+
+.container {
+    position: relative;
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer{
+    position: static;
+    bottom: 0;
+}
+
+.col-sm-3 {
+    width: 25%;
+}
+
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+    float: left;
+}
+
+#mb-pnl .srch-pnl label, #mb-pnl h3, #wb-bc h2, #wb-glb-mn h2, #wb-info h2, #wb-lng h2, #wb-sec h2, #wb-sm h2, #wb-srch h2, #wb-srch label, .wb-fnote dt, .wb-inv, .wb-invisible, .wb-show-onfocus, .wb-sl {
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+#wb-bc {
+    padding: 0px 5px;
+    height: 35px;
+    border-right: #ccc 1px solid;
+    border-left: #ccc 1px solid;
+}
+
+#wb-bc .breadcrumb {
+    margin-bottom: 0;
+    background: 0 0;
+}
+.breadcrumb {
+    padding: 8px 10px;
+    margin-bottom: 23px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+#wb-bc li+li:before {
+    content: "\e092";
+    padding: 0 10px;
+}
+
+#wb-bc li {
+    float: left;
+}
+
+#wb-bc li:after, #wb-bc li:before {
+    font-family: "Glyphicons Halflings";
+    font-size: .7em;
+    color: #333;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    margin-top: 0;
+}
+
+.col-md-push-3 {
+    left: 25%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+.col-md-9 {
+    width: 75%;
+}
+
+.col-md-12 {
+    width: 100%;
+}
+
+#language-selector{
+    color: #555;
+}
+
+/* forms */
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form) {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+  .form-validation-msg {
+      display:none;
+  }
+
+  .form-validate-msg-show {
+    display: block;
+    color: red;
+    padding-top: 7px;
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    display: block;
+    width: 65%;
+    height: 34px;
+    margin-bottom: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 7px;
+}
+
+#form-container {
+        border: solid 1px #ddd;
+        padding: 0 15px 20px;
+}
+
+#select-data-container {
+    border: solid 1px #ddd;  
+}
+
+#select-data-container .title {
+    cursor: pointer;
+    background: #e6e6e6;
+    border-radius: 0;
+    margin-top: -1px;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-top: 1px solid #ddd; 
+}
+
+.main-data-container {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+#frame-container{
+    margin-top: -20px;
+}
+
+.main-data-container-sub {
+    margin-top: 10px;
+}
+
+/*Review Data Button -Drop Down Arrows */
+
+.review-data-btn i {
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+  }
+  
+  .review-data-btn-pca i{
+ background-color:lightblue;
+ color: #000;
+    border: solid navy;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 6px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+  }
+  
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+.main-overlay-data-container {
+    padding-bottom: 20px;
+}
+
+.main-data-container .table-title, .main-overlay-data-container  .table-title{
+    cursor: pointer;
+    background: #e6e6e6;
+    border-radius: 0;
+    margin-top: -1px;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding-right: 40px;
+}
+
+.main-data-container td, .main-overlay-data-container  td {
+    width: 11%;
+}
+
+.main-data-container td.data-title, .main-overlay-data-container  td.data-title {
+    font-weight: 700;
+}
+
+.main-data-container .table-content, .main-overlay-data-container .table-content {
+    padding: 4px;
+    border-radius: 0;
+    border: 1px solid #ddd;
+}
+
+.form-title {
+    margin-left: 15px;
+    margin-top: 15px;
+    color: #555;
+    font-weight: 600;
+    font-size: 97%;
+}
+
+.form-title-sub {
+    font-size: 90%;
+    font-weight: 300;
+    width: 100%;
+    position: relative;
+    left: 35px;
+    top: 1px;
+}
+
+.main-tite-sub{
+    position: relative;
+    float: right;
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 5px;
+    top: 10px; 
+}
+
+.main-tite-sub-small {
+    font-size: 14px;
+}
+
+.chart-sub-options-right .form-title {
+    font-size: 92%;
+}
+
+.chart-sub-options-right select {
+    top: -1px;
+    position: relative;
+    height: 20px;
+    font-size: 14px;
+}
+
+
+#select-data-container .form-control {
+    margin-top: 5px;
+    margin-bottom: 6px;
+    border-radius: 0;
+}
+
+#select-data-container .content {
+    padding: 0;
+}
+
+#select-data-container input[type="checkbox"] {
+    margin: 3px 7px 3px 4px;
+}
+
+#select-data-container .selected-list .c-list .c-token{
+    padding: 0px 4px;
+    background: #146094;
+}
+
+#select-data-container .pure-checkbox input[type="checkbox"]:checked + label:before {
+    background: #146094;  
+}
+
+#select-data-container .pure-checkbox input[type="checkbox"] + label:before {
+    color: #146094;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #146094;
+}
+
+fieldset {
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+    min-width: -webkit-min-content;
+    border-width: 1px;
+    border-style: groove;
+    border-color: #eee;
+    border-image: initial;
+}
+
+#form-container {
+    font-size: 15px;
+}
+
+#form-container legend {
+    font-weight: bold;
+    letter-spacing: -0.2px;
+}
+
+#select-data-container h3 {
+    padding: 0px 15px;
+}
+
+#select-data-container hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0px;
+    clear: both;
+}
+
+#select-data-container .expanded {
+    padding: 15px;
+}
+
+#select-data-container .selectmenu-dropdowns .expanded {
+    padding: 20px 15px 25px;
+}
+
+#data-select-pca-options .pca-select-accomodations .form-control{
+    margin: 15px 15px 25px;
+    width: 100px;
+}
+
+#select-data-container .pca-select-accomodations-hr {
+    margin-top: 15px;
+}
+
+#select-data-container .pca-select-definitions {
+    margin-top: 15px;
+}
+
+
+
+.ng2-selectmenu-custom .selected-list .c-btn {
+    box-shadow: 0px 0px 0px !important;
+    width: 80% !important;
+    border-radius: 0px !important;
+  }
+
+  .ng2-selectmenu-custom .cuppa-dropdown {
+    margin-top: 10px;
+  }
+
+  .ng2-selectmenu-custom .cuppa-dropdown:first-child {
+    margin-top: 0px;
+}
+
+  .ng2-selectmenu-custom .list-area {
+    box-shadow: 0px 0px 0px !important;
+  }
+
+  .ng2-selectmenu-custom .select-all {
+      display: none;
+  }
+
+  .btn-clear-form {
+    margin: 0px 0px 25px 15px;
+  }
+
+  .btn-clear-form-2 {
+  margin: 5px 0px 25px 15px
+  }
+
+  #data-select-pca-options .form-group {
+    margin-left: 15px;
+}
+
+#data-select-pca-options .pca-manikin-options-list{
+    margin-bottom: 15px;
+}
+
+  .ng2-selectmenu-custom .selected-list .c-list .c-token .fa-remove{
+      margin-left: 0px;
+      display: none;
+  }
+
+  .ng2-selectmenu-custom .arrow-up, .ng2-selectmenu-custom .arrow-2 {
+      display: none;
+  }
+
+  .ng2-selectmenu-container hr {
+    border-top: 1px solid #fff !important;
+    margin: 5px !important;
+  }
+
+  .ng2-selectmenu-custom .dropdown-list{
+      padding-top: 0px !important;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.4375;
+  }
+
+  .ng2-selectmenu-container .btn-clear-form {
+      margin: 20px 0 0;
+  }
+
+  .switch-small{
+    width: 50px;
+    height: 30px;
+    border-radius: 0px;
+}
+
+.switch-small {
+    width: 32px !important;
+    border-radius: 0px !important;
+    background: #f5f5f5;
+}
+
+.switch-small small {
+    width: 19px !important;
+    height: 19px !important;
+}
+
+.switch-large{
+    width: 50px;
+    height: 30px;
+    border-radius: 0px;
+}
+
+.switch-large {
+    width: 150px !important;
+    border-radius: 0px !important;
+    background: #f5f5f5;
+    height: 15px !important;
+    margin-right: 1px !important;
+}
+
+.switch-large small {
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    border: 1px solid #bbb !important;
+}
+
+.switch-large.checked small {
+    left: 136px !important;
+}
+
+
+.plot-slider {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.MeasurementSystemLabel1, .MeasurementSystemLabel2 {
+position: relative;
+font-size: 14px;
+top: -5px;
+}
+
+.MeasurementSystemLabel1{
+font-weight: 700;
+    }
+
+    .plot-slider-disabled .MeasurementSystemLabel1{
+        font-weight: 300;
+    }
+
+    .plot-slider-disabled .MeasurementSystemLabel2{
+        font-weight: 700;
+    }
+
+.formDiv1{
+    padding: 10px; 
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: right;
+    color: #444;
+}
+
+.formDiv2 {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.formDiv3 {
+    margin-bottom: 15px;
+}
+
+.formDiv1Label {
+    position: relative;
+    top: -2px;
+}
+
+.panel-group, .panel-group-results  {
+    padding: 15px;
+}
+
+.panel-group .btn {
+    margin: 25px 0 15px;
+}
+
+.panel-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.panel-title-2 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.panel-subtitle {
+    font-weight: 700;
+    margin-bottom: -10px;
+    margin-top: 10px;
+}
+
+.panel-subtitle-2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.panel-group-results .list-item{
+    width: 47px;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    border-right: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.panel-group-results .list-item-2{
+    width: 100%;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.panel-group-results .form-group {
+    margin-top: 20px;
+}
+
+.chart-sub-options-hr {
+    margin: 40px 5px;
+    opacity: 0.6;
+}
+
+.select-form-radio-options {
+    font-size: 14px;
+    margin: -12px 0 15px 15px;
+}
+
+.select-form-radio-options input {
+position: relative;
+top: 3px;
+margin-right: 12px;
+margin-left: 1px;
+}
+
+.viewPlot1Selections-options {
+    margin-bottom: 15px;
+}
+
+.chart-sub-options button{
+    margin-right: 5px;
+}
+
+.chart-sub-options {
+    margin-top: 2px;
+    margin-bottom: 40px;
+}
+
+.chart-sub-options .chart-sub-options-left, .chart-sub-options .chart-sub-options-right,
+.slider-percentile .chart-sub-options-left, .slider-percentile .chart-sub-options-right{
+    width: 49%;
+}
+
+.chart-sub-options .chart-sub-options-right, .slider-percentile .chart-sub-options-right{
+    text-align:right;
+    float: right;
+    margin-right:5px;
+}
+
+.chart-sub-options .chart-sub-options-right{
+    margin-top: -12px;
+}
+
+.chart-sub-options .form-control {
+    display: block;
+    float: right;
+    height: 25px;
+    width: 50px;
+    font-size: 14px;
+    padding-bottom: 0;
+    margin-left: 5px;
+    margin-top: -4px;
+}
+
+hr.main-page-data-sub {
+    opacity: 0.7;
+    margin: 15px 0 45px
+}
+
+.page-navigation-button{
+    float: right;
+    font-weight: 600;
+    display: block;
+    background: #ddd;
+    padding: 5px 20px;
+    border: 1px solid #ccc;
+}
+
+.page-navigation-button a{
+text-decoration: none;
+color: #295376;
+}
+
+.switch {
+    background: rgb(2, 140, 233);
+}
+
+hr {
+    opacity: 0.3;
+    clear: both;
+}
+
+.form-group label{
+    font-weight: bold;
+    font-size:19px;
+    padding-right: 2px;
+}
+
+.form-group {
+    margin: 15px 0;
+    line-height: 27px;
+}
+
+.select-result {
+    margin: 15px 0;
+}
+
+.select-result-title {
+    font-weight: bold;
+}
+
+.select-result-item {
+    padding-right: 15px;
+}
+
+.form-group-select-dataset {
+    width: 50%;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border-left: none;
+}
+
+.multiselect-dropdown .selected-item {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+/* Chart Styles */
+
+.chart-main-title {
+    font-size: 22px;
+    width: 100%;
+    text-align: center;
+}
+
+.main-data-container button{
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 5px 10px;
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+.form-group-colums, .form-group-colums-sub {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.form-group-colums-sub {
+    margin-bottom: 25px;
+}
+
+.form-group-select-dataset {
+    float: left;
+}
+
+.form-group-colums-left {
+    display: block;
+    width: 40%;
+    float: left;
+}
+
+.form-group-colums-right {
+    display: block;
+    width: 55%;
+    float: right;
+}
+
+.form-group-body-measures {
+    display: block;
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+.form-group-units {
+    width: 32%;
+    float: right;
+    margin-top: 20px;
+}
+
+.form-group-units .form-group-item {
+    float: left;
+    margin: 5px 10px 0 -5px;
+}
+
+.form-group-bin-options{
+    display: block;
+    width: 10%;
+    float: right;
+}
+
+.form-group-bin-options .form-control{
+    width:90%;
+}
+
+.form-group-agegroups{
+    display: block;
+}
+
+.form-group-sex {
+    display: block;
+
+}
+
+.form-group-language {
+    display: block;
+    float: right;
+    width: 50%;
+}
+
+.form-group-services{
+    display: block;
+}
+
+.form-group-trades-branches {
+    display: block;
+}
+
+.form-group-components{
+    display: block;
+}
+
+.form-group-handedness {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.form-group-visions-corrected {
+    display: block;
+
+}
+
+.result-type-demographic-plot2 {
+    display:none;
+}
+
+.result-type-demographic-plot2.plot2active {
+    display:block;
+}
+
+.form-group-show-ellipse-option {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+
+.form-submit-buttons{
+    border-top: 1px solid #ccc;
+    padding-top: 40px;
+}
+
+.form-group-calculate-manikins-option {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.form-group-accomodation-option {
+    width: 43%;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+
+.form-group-colums, .form-group-colums-sub {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.form-group-colums-sub {
+    margin-bottom: 25px;
+}
+
+.form-group-colums-left {
+    display: block;
+    width: 40%;
+    float: left;
+}
+
+.form-group-colums-right {
+    display: block;
+    width: 55%;
+    float: right;
+}
+
+.form-group-body-measures {
+    display: block;
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+.form-group-units {
+    width: 32%;
+    float: right;
+}
+
+.form-group-units .form-group-item {
+    float: left;
+    margin: 5px 10px 0 -5px;
+}
+
+.form-group-bin-options{
+    display: block;
+    width: 10%;
+    float: right;
+}
+
+.form-group-bin-options .form-control{
+    width:90%;
+}
+
+.form-group-agegroups{
+    display: block;
+}
+
+.form-group-sex {
+    display: block;
+
+}
+
+.form-group-language {
+    display: block;
+    float: right;
+    width: 50%;
+}
+
+.form-group-services{
+    display: block;
+}
+
+.form-group-trades-branches {
+    display: block;
+}
+
+.form-group-components{
+    display: block;
+}
+
+.form-group-handedness {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.form-group-visions-corrected {
+    display: block;
+
+}
+
+.form-group-second-plot-option {
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/*Review Table Data Styles */
+
+.table-data-subframe{
+    margin-top: -25px;
+    margin-bottom: 55px;
+}
+
+.chart-data-table {
+    width: 100%;
+    font-size:80%;
+}
+
+.table-data-header{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.chart-data-table th{
+    text-align: left;
+}
+
+.review-data-table{
+    width: 100%;
+}
+
+.review-data-table-title-row{   
+    font-weight: 600;
+    height: 37px;
+    vertical-align: bottom;
+}
+
+.review-data-table-cell{
+    width: 170px;
+}
+
+.review-data-table-title{
+    font-weight: 600;
+    text-decoration: underline;
+    height: 50px;  
+}
+
+.result-cell-span {
+    display:block;
+    margin-right: 35px;
+}
+
+.form-group-calculate-manikins-definitions label{
+    font-size: 16px;
+}
+
+.form-group-calculate-manikins-definitions {
+    width: 230px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.review-data-table-cell-md {
+    display: block;
+    width: 400px;
+    padding-right: 45px;
+}
+
+.review-data-table-options {
+    margin-top: 25px;
+}
+
+.demographic-table-2 {
+    float:right;
+    width: 55%;
+    border-left: 1px solid #bbb;
+    padding-left: 90px;
+    margin-top:10px;
+}
+
+.review-data-table-demographic {
+    margin-top:30px;
+}
+
+.review-data-table-demographic-2 {
+    margin-top:0px;
+}
+
+.review-data-table-demographics-title {
+    font-weight:bold;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.review-data-table-title-demographics-row{
+    vertical-align: top;
+    height: 37px;
+}
+
+.table-full{
+    width:100%;
+}
+
+button.review-data-btn {
+    margin-bottom: 0px;
+}
+
+button.explore-new-data-btn {
+    float: right;
+}
+
+hr.hr-level-1{
+    margin-bottom:20px;
+    margin-top:40px;
+}
+
+.table-data-subframe table, .table-data-subframe td, .table-data-subframe th {
+    border: 1px solid #ddd;
+  }
+
+  .table-data-subframe table {
+      border-collapse: collapse;
+      margin-top: 4px;
+      margin-bottom: 40px;
+  }
+
+  .table-data-subframe td, .table-data-subframe th {
+    padding: 4px;
+  }
+
+  .table-data-subframe th.table-sm-label{
+    font-size: 12px;
+    font-weight: bold;
+    padding-right: 8px;
+}
+
+.table-sm-label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.inline-btns-right{
+    float:right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.inline-row-title{
+    position: relative;
+    top: -8px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-inline-row{
+    margin-right: 12px;
+}
+
+.hr-sub-page{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pca-tools-page #data-chart-view h2 {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+}
+
+.hr-plot-underline{
+    opacity: 1;
+    clear: both;
+}
+
+
+@media print {
+    .wb-menu .nvbar {
+        display: none;
+    }
+
+    form {
+        max-width: 800px;
+    }
+
+    #app-page .full-page-width-view {
+        margin-right: 50px;
+        width: 1100px;
+    }
+
+    #language-selector{
+        display:none;
+    }
+
+    .review-data-btn, .explore-new-data-btn {
+        display:none;
+    }
+
+    .review-selected-data {
+        display: block;
+        page-break-before: always; 
+        margin-bottom:20px;
+    }
+
+    .pca-tools-page .review-selected-data {
+        display: block;
+        page-break-before: auto;  
+        margin-bottom:20px;
+    }
+
+    .chart-percentile-slider {
+        margin: 50px 10px;
+        margin-bottom: 60px;
+    }
+
+    .chart-percentile-slider-2 {
+        padding-top: 20px;
+    }
+
+    .table-data-subframe {
+        margin-top: 10px;
+    }
+
+    .table-data-subframe table {
+        margin-bottom: 70px;
+    }
+
+    .btn-export-data {
+        display: none;
+    }
+
+    .main-data-container-2 {
+        margin-top: 50px;
+    }
+
+    .inline-btns-right {
+        display: none;
+    }
+
+    .multi-d-view #frame-container {
+        margin-top:140px;
+    }
+
+    hr.hr-sub-page {
+        display: none;
+    }
+
+    hr.hr-bottom-page {
+        display: none;
+    }
+
+}

@@ -1,0 +1,40 @@
+#wb-info {
+    background: #EFEFEF url(/assets/images/sft-deco.gif) repeat-x scroll center top;
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+#wb-info>.container {
+    background: transparent url(/assets/images/sft-deco-leaf.gif) no-repeat top center;
+    min-height: 100px;
+    position: relative;
+    margin-top: -16px;
+    z-index: 100;
+    bottom: 0;
+}
+
+#wb-info>.container p {
+    border-left: #ccc 1px solid;
+    border-right: #ccc 1px solid;
+    padding: 0 15px;
+}
+
+#gc-tctr {
+    padding-top: 5px;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+
+.list-inline {
+    margin-left: -5px;
+}
+
+.visible-lg {
+    display: block!important;
+}
+
+#gc-info {
+    background-color: #000;
+    margin-top: 10px;
+}

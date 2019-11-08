@@ -1,0 +1,26 @@
+{
+  "HOME": {
+    "TITLE": "R2MR User Data Research Server"
+  },
+  "SITE-HEADER": {
+    "TITLE": "R2MR User Data Research Server",
+    "SELECT": "Change language"
+  },
+  "SITE-SUB-NAVIGATION": {
+    "ANALYZE": "Analyze",
+    "USER-DATA-NG": "User Data (Ng)"
+  },
+  "PAGE-ANALYZE-1D": {
+    "TITLE": "User Data Analysis"
+  },
+  "ANALYZE": {
+    "TITLE-MAIN": "Analyze Data",
+    "PAR-MAIN": "As part of the Government's commitment to providing accessible online information and services to the public and to maintaining trust and confidence in Government of Canada websites, it was announced in January 2010 that the Common Look and Feel for the Internet 2.0 Standard (CLF 2.0), was being updated.",
+    "PAR1-TITLE": "User Data Analysis",
+    "PAR1": "Through collaboration with the Government's Web communities, the current four components of the Common Look and Feel 2.0 standards will be replaced by the following three new components:",
+    "PAR1-LINK": "Begin User Data Analysis"
+  }
+}
+
+
+

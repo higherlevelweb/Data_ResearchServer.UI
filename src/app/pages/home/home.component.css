@@ -1,0 +1,12 @@
+#home-page-container{
+    margin:15px;
+}
+
+.home-content{
+    text-align: center;
+}
+
+h1.home-title{
+    margin-top: 200px;
+    font-size: 56px;
+}

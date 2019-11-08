@@ -1,0 +1,748 @@
+<div class="full-page-sub-nav-view pca-tools-page" [ngClass]="{ 'full-page-width-view': loadChartView }">
+        <h1>PCA Tools</h1>
+        <div *ngIf="loadChartView; else selectDataView">
+                <div *ngIf="chartDataLoaded; else dataLoadingView" id="data-chart-view">
+                        <h2>Selected Variables : {{selectedBodyMeasuresDisplay}} </h2>
+
+                        <button type="button" class="btn btn-success review-data-btn" (click)="changeSelectedData($event)">Change Selected Data Options</button>
+                        <button type="button" class="btn btn-success review-data-btn" (click)="viewHideSelectedDataOptions($event)" [hidden]="viewSelectedOptions">Review Selected Data Options
+                                <i class="down"></i>
+                        </button>
+                        <button type="button" class="btn btn-success analyze-new-data-btn" (click)="exploreNewData()">Analyze New Data</button>
+
+                        <div class="review-selected-data" [hidden]="!viewSelectedOptions">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+                                        <div *ngIf="plotSecondDemographics" class="demographic-table-2">
+                                                <table class="review-data-table-demographic-2">
+                                                        <tr class="review-data-table-title-demographics-row">
+                                                                <td class="review-data-table-demographics-title" colspan="2">Demographics 2: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell">Sex: </td>
+                                                                <td class="review-data-table-cell">Language: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell">{{selectedSexDisplay2}}</td>
+                                                                <td class="review-data-table-cell">{{selectedLanguageDisplay2}}</td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell" colspan="2">Age Groups: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell" colspan="2">
+                                                                        <span class="result-cell-span" [innerHTML]="selectedAgegroupsDisplay2"></span>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell" colspan="2">Services: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell" colspan="2">
+                                                                        <span class="result-cell-span" [innerHTML]="selectedServicesDisplay2"></span>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell" colspan="2">Trades/Branches: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell" colspan="2">
+                                                                        <span class="result-cell-span" [innerHTML]="selectedTradesBranchesDisplay2"></span>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell" colspan="2">Components: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell" colspan="2">
+                                                                        <span class="result-cell-span" [innerHTML]="selectedComponentsDisplay2"></span>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-title-row">
+                                                                <td class="review-data-table-cell">Preferred Hand: </td>
+                                                                <td class="review-data-table-cell">Vision Corrected: </td>
+                                                        </tr>
+                                                        <tr class="review-data-table-result-row">
+                                                                <td class="review-data-table-cell">{{selectedPreferredHandDisplay2}}</td>
+                                                                <td class="review-data-table-cell">{{selectedVisionCorrectedDisplay2}}</td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                        <table class="review-data-table-demographic" [ngClass]="{ 'table-full': !plotSecondDemographics }">
+                                                <tr class="review-data-table-title-demographics-row">
+                                                        <td class="review-data-table-demographics-title" colspan="2">Demographics 1: </td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell">Sex: </td>
+                                                        <td class="review-data-table-cell">Language: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell">{{selectedSexDisplay}}</td>
+                                                        <td class="review-data-table-cell">{{selectedLanguageDisplay}}</td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell" colspan="2">Age Groups: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell" colspan="2">
+                                                                <span class="result-cell-span" [innerHTML]="selectedAgegroupsDisplay"></span>
+                                                        </td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell" colspan="2">Services: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell" colspan="2">
+                                                                <span class="result-cell-span" [innerHTML]="selectedServicesDisplay"></span>
+                                                        </td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell" colspan="2">Trades/Branches: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell" colspan="2">
+                                                                <span class="result-cell-span" [innerHTML]="selectedTradesBranchesDisplay"></span>
+                                                        </td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell" colspan="2">Components: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell" colspan="2">
+                                                                <span class="result-cell-span" [innerHTML]="selectedComponentsDisplay"></span>
+                                                        </td>
+                                                </tr>
+                                                <tr class="review-data-table-title-row">
+                                                        <td class="review-data-table-cell">Preferred Hand: </td>
+                                                        <td class="review-data-table-cell">Vision Corrected: </td>
+                                                </tr>
+                                                <tr class="review-data-table-result-row">
+                                                        <td class="review-data-table-cell">{{selectedPreferredHandDisplay}}</td>
+                                                        <td class="review-data-table-cell">{{selectedVisionCorrectedDisplay}}</td>
+                                                </tr>
+                                        </table>
+                                </div>
+                        </div>
+                        <hr />
+                        <div *ngIf="isPCAFromParent">
+
+                                <h1>Manekin PCA Options</h1>
+
+                                <form id="frmPCAOptions" (ngSubmit)="onSubmitPCAOptions()">
+
+                                        <div *ngIf="numberOfDimensionFromParent > 1">
+                                                <div class="form-group-show-ellipse-option">
+                                                        <label for="showEllipseOption" class="control-label">Show Ellipse: </label>
+                                                        <input type="checkbox" [(ngModel)]="selected_manikin_options.show_ellipse" [ngModelOptions]="{standalone: true}" (change)="setShowEllipseOptions($event)"
+                                                        />
+                                                </div>
+                                                <div *ngIf="selected_manikin_options.manikins; else selectManikinOption" class="form-group-calculate-manikins-definitions">
+                                                        <label for="datasets" class="control-label">Manikin Definitions: </label>
+                                                        <input type="checkbox" [(ngModel)]="selected_manikin_options.manikins" [ngModelOptions]="{standalone: true}" (change)="setShowCalculateManikinsOptions($event)"
+                                                        />
+                                                        <ng-multiselect-dropdown [placeholder]="'Select Options'" [data]="manikin_definitions" [(ngModel)]="selected_manikin_definitions"
+                                                                [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
+                                                </div>
+                                                <ng-template #selectManikinOption>
+                                                        <div class="form-group-calculate-manikins-option">
+                                                                <label for="calculateManikinsOption" class="control-label">Calculate Manikins: </label>
+                                                                <input type="checkbox" [(ngModel)]="selected_manikin_options.manikins" [ngModelOptions]="{standalone: true}" (change)="setShowCalculateManikinsOptions($event)"
+                                                                />
+                                                        </div>
+                                                </ng-template>
+                                                <div *ngIf="show_accomodation_option && isPCAFromParent == 'true'" class="form-group-accomodation-option">
+                                                        <label for="showAccomodationOption" class="control-label">Accomodation Percentage: </label> {{selected_accomodation}}
+                                                        <nouislider [min]="5" [max]="100" [step]="1" [(ngModel)]="selected_accomodation" [disabled]="disabled" [ngModelOptions]="{standalone: true}"
+                                                                (end)="updateSelectedAccomodation($event)">
+                                                        </nouislider>
+                                                </div>
+                                                <hr />
+                                                <div class="form-group-colums">
+                                                        <div class="form-group-colums-left">
+                                                                <div *ngIf="show_accomodation_option && isPCAFromParent === 'true'" class="form-group-calculate-manikins-definitions">
+                                                                        <label for="missing_data_handling" class="control-label">Missing Data Handling: </label>
+                                                                        <div *ngFor="let vc of missing_data_handling" class="form-group-item inline">
+                                                                                <input type="radio" value="{{vc.value}}" name="missing_data_handling" [disabled]="disabled" [(ngModel)]="selected_missing_data_handling">{{vc.display}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group form-group-body-measures">
+                                                                <div *ngIf="show_accomodation_option && isPCAFromParent === 'true'" class="form-group-calculate-manikins-option">
+                                                                        <label for="number_of_pcs_to_assess" class="control-label">Number Of PCs to Assess: </label>
+                                                                        <select class="form-control" item-width="40%" id="number_of_pcs_to_assess" [(ngModel)]="selected_number_of_pcs_to_assess"
+                                                                                name="number_of_pcs_to_assess" (change)="updateNumber_Of_PCs_To_Assess($event)">
+                                                                                <option *ngFor="let ds of number_of_pcs_to_assess" value="{{ds.value}}">{{ds.display}}</option>
+                                                                        </select>
+
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group-colums">
+                                                        <div class="form-group-colums-left">
+                                                                <div *ngIf="show_accomodation_option && isPCAFromParent == 'true'" class="form-group-calculate-manikins-definitions">
+                                                                        <label for="showPCSToBeCalculated" class="control-label">PCs to be Calculated: </label> {{selected_pcs_to_be_calculated}}
+                                                                        <nouislider [min]="1" [max]="3" [step]="1" [(ngModel)]="selected_pcs_to_be_calculated" [disabled]="disabled" [ngModelOptions]="{standalone: true}"
+                                                                                (end)="updateSelectedPCS_To_Be_Calculated($event)">
+                                                                        </nouislider>
+
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group-colums-right">
+                                                                <div *ngIf="show_accomodation_option && isPCAFromParent == 'true'" class="form-group-accomodation-option">
+                                                                        <button type="button" class="btn btn-success analyze-new-data-btn" [disabled]="buttonDisabled == 'true'"  (click)="calculateManekins()">Calculate Manekins</button>
+                                                                        <span class="form-validation-msg" [ngClass]="{ 'form-validate-msg-show': formValidationError }">
+                                                                                * {{formValidationMsg}}</span>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <hr class="hr-level-1" />
+                                        </div>
+
+                                </form>
+
+                        </div>
+
+                        <div *ngIf='showTotalCovariance' class="main-data-container">
+                                <button class="btn btn-success" (click)="exportAsExcelFileRealDataPlot1()"> Export Data to Excel</button>
+                                <button class="btn btn-success" (click)="exportAsExcelFileDataCaracteristics()"> Export Data Characteristics to Excel</button>
+
+                                <div title class="table-title">
+                                        <i class="dropdown icon"></i>
+                                        Total Variance Explained :
+                                </div>
+                                <div content class="table-content">
+                                        <table id="id_listofListsPCAData_0_TotalVariance">
+
+                                                <tr *ngFor="let pcaData of listofListsPCAData_0_TotalVariance; let ndx = index; let even = even; let odd = odd">
+
+                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                {{pcaData.Col0}}
+                                                        </td>
+                                                        <td class="data-feild" [ngStyle]="{'background-color': getContentAndHeaderBackColor(pcaData.Col1,ndx)}">
+                                                                {{pcaData.Col1}}
+                                                        </td>
+                                                        <td class="data-feild" [ngStyle]="{'background-color': getContentAndHeaderBackColor(pcaData.Col2,ndx)}">
+                                                                {{pcaData.Col2}}
+                                                        </td>
+                                                        <td class="data-feild" [ngStyle]="{'background-color': getContentAndHeaderBackColor(pcaData.Col3,ndx)}">
+                                                                {{pcaData.Col3}}
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </div>
+                        </div>
+                        <hr class="hr-level-1" />
+
+                        <button type="button" [disabled]="buttonDisabled" class="btn btn-success review-data-btn-pca" (click)="viewHidePlot($event)" [hidden]="viewPlot">Review Plot
+                                <i class="down"></i>
+                        </button>
+                        <button type="button" class="btn btn-success review-data-btn-pca" (click)="viewHideCovarianceMatrix($event)" [hidden]="viewCovarianceMatrix">Review Covariance Matrix
+                                <i class="down"></i>
+                        </button>
+                        <button type="button" class="btn btn-success review-data-btn-pca" (click)="viewHideCasesAndKMOMeasure($event)" [hidden]="viewCasesAndKMOMeasure">Review Cases And KMO Measure
+                                <i class="down"></i>
+                        </button>
+                        <button type="button" class="btn btn-success review-data-btn-pca" (click)="viewHideFactorLoadings($event)" [hidden]="viewFactorLoadings">Review Factor Loadings
+                                <i class="down"></i>
+                        </button>
+                        <button type="button" class="btn btn-success review-data-btn-pca" (click)="viewHideFactorScoreCoefficientsVariables($event)"
+                                [hidden]="viewFactorScoreCoefficientsVariables">Review Factor Score Coefficients Variables
+                                <i class="down"></i>
+                        </button>
+                        <button type="button"  [disabled]="buttonDisabled"  class="btn btn-success review-data-btn-pca" (click)="viewHideStructuralDimensions($event)" [hidden]="viewStructuralDimensions">Review Structural Dimensions
+                                <i class="down"></i>
+                        </button>
+                        <button type="button"  [disabled]="buttonDisabled"  class="btn btn-success review-data-btn-pca" (click)="viewHideNearestNeighbourCases($event)" [hidden]="viewNearestNeighbourCases">Review Nearest Neighbour Cases
+                                <i class="down"></i>
+                        </button>
+                        <div class="review-selected-data" [hidden]="!viewPlot">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+                                        <div *ngIf="showPlot" class="main-data-container">
+                                                <div title class="table-title">
+                                                        <i class="dropdown icon"></i>
+                                                        Plot :
+                                                </div>
+                                                <div content class="table-content">
+
+                                                        <h2>Scatterplot - {{selected_pcs_to_be_calculated}} D</h2>
+                                                        <div id="frame-container">
+                                                                <input id="parentValue" type="hidden" [value]="plotdata" />
+                                                                <iframe id="frame" [src]="url" frameborder="0" width="100%" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+                                                        </div>
+
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="review-selected-data" [hidden]="!viewCasesAndKMOMeasure">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+                                        <div *ngIf="showCasesAndKMOMeasure" class="main-data-container">
+                                                <div title class="table-title">
+                                                        <i class="dropdown icon"></i>
+                                                        Cases And KMO Measure :
+                                                </div>
+                                                <div content class="table-content">
+                                                        <table>
+                                                                <tr>
+                                                                        <td class="data-title" style="background-color:darkgrey">
+                                                                                Cases Variables
+                                                                        </td>
+                                                                        <td class="data-feild">
+                                                                                {{pcaDataCasesVariables}} : 1
+                                                                        </td>
+                                                                        <td class="data-feild">
+
+                                                                        </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td class="data-title" style="background-color:darkgrey">
+                                                                                KMO Measure
+                                                                        </td>
+                                                                        <td class="data-feild" [ngStyle]="{'background-color': getKMOMeasureColor(pcaDataCasesVariables,pcaDataKMOMeasure,pcaBartlettSphericity)}">
+                                                                                {{pcaDataKMOMeasure | number : '1.2-2'}}
+                                                                        </td>
+                                                                        <td class="data-feild" [ngStyle]="{'background-color': getKMOMeasureColor(pcaDataCasesVariables,pcaDataKMOMeasure,pcaBartlettSphericity)}">
+                                                                                {{pcaDataKMOMeasureStatus}}
+                                                                        </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td class="data-title" style="background-color:darkgrey">
+                                                                                Bartlett's Sphericity
+                                                                        </td>
+                                                                        <td class="data-feild">
+                                                                                p = {{pcaBartlettSphericity | number : '1.2-2' }}
+                                                                        </td>
+                                                                        <td class="data-feild">
+
+                                                                        </td>
+
+                                                                </tr>
+                                                        </table>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="review-selected-data" [hidden]="!viewCovarianceMatrix">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+
+                                        <div *ngIf='showCovarianceMatrix' class="main-data-container">
+                                                <div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Covariance Matrix :
+
+                                                        </div>
+                                                        <div id="contentscroll" class="container">
+
+
+                                                                <table class="table table-bordered">
+                                                                        <tbody>
+                                                                                <tr *ngFor="let pcaData of listofListsPCAData_1_CovarianceMatrix">
+
+                                                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                                                {{pcaData.Col0}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col1),'background-color': getHeaderOrTitleBackColor(pcaData.Col1)}">
+                                                                                                {{pcaData.Col1}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col2),'background-color': getHeaderOrTitleBackColor(pcaData.Col2)}">
+                                                                                                {{pcaData.Col2}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col3),'background-color': getHeaderOrTitleBackColor(pcaData.Col3)}">
+                                                                                                {{pcaData.Col3}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col4),'background-color': getHeaderOrTitleBackColor(pcaData.Col4)}">
+                                                                                                {{pcaData.Col4}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 3 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col5),'background-color': getHeaderOrTitleBackColor(pcaData.Col5)}">
+                                                                                                {{pcaData.Col5}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 4 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col6),'background-color': getHeaderOrTitleBackColor(pcaData.Col6)}">
+                                                                                                {{pcaData.Col6}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 5 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col7),'background-color': getHeaderOrTitleBackColor(pcaData.Col7)}">
+                                                                                                {{pcaData.Col7}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 6 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col8),'background-color': getHeaderOrTitleBackColor(pcaData.Col8)}">
+                                                                                                {{pcaData.Col8}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 8 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col9),'background-color': getHeaderOrTitleBackColor(pcaData.Col9)}">
+                                                                                                {{pcaData.Col9}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 7' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col10),'background-color': getHeaderOrTitleBackColor(pcaData.Col10)}">
+                                                                                                {{pcaData.Col10}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 8 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col11),'background-color': getHeaderOrTitleBackColor(pcaData.Col11)}">
+                                                                                                {{pcaData.Col11}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 9 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col12),'background-color': getHeaderOrTitleBackColor(pcaData.Col12)}">
+                                                                                                {{pcaData.Col12}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 10 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col13),'background-color': getHeaderOrTitleBackColor(pcaData.Col13)}">
+                                                                                                {{pcaData.Col13}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 11 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col14),'background-color': getHeaderOrTitleBackColor(pcaData.Col14)}">
+                                                                                                {{pcaData.Col14}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 12 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col15),'background-color': getHeaderOrTitleBackColor(pcaData.Col15)}">
+                                                                                                {{pcaData.Col15}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 13 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col16}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 14 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col17}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 15 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col18}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 16 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col19}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 17 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col20}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 18 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col21}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 19 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col22}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 20 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col23}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 13 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col16}}
+                                                                                        </td>
+                                                                                        <td *ngIf='numberOfDimensionFromParent > 13 ' class="data-feild" [ngStyle]="{'color': getCovarianceColor(pcaData.Col16),'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col16}}
+                                                                                        </td>
+
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                        </div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Note: Covariance coefficients greater than 0.8 are marked in red.
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="review-selected-data" [hidden]="!viewFactorLoadings">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+                                        <div *ngIf='showFactorLoadings' class="main-data-container">
+                                                <div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Factor Loadings :
+
+                                                        </div>
+                                                        <div id="contentscroll" class="container">
+
+
+                                                                <table class="table table-bordered">
+                                                                        <tbody>
+                                                                                <tr *ngFor="let pcaData of listofListsPCAData_4_FactorLoadings">
+
+                                                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                                                {{pcaData.Col0}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col1)}">
+                                                                                                {{pcaData.Col1}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col2)}">
+                                                                                                {{pcaData.Col2}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col3)}">
+                                                                                                {{pcaData.Col3}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 3' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col4)}">
+                                                                                                {{pcaData.Col4}}
+                                                                                        </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                                <!--
+                                        <table>
+                                                        <tr>
+                                                          <th *ngFor="let col of columns">
+                                                            {{col}}
+                                                          </th>
+                                                        </tr>
+                                                        <tr *ngFor="let pcaData of listofListsPCAData_4_FactorLoadings | async">
+                                                       <tr *ngFor="let char of characters | async">
+                                                          <td *ngFor="let col of columns">
+                                                            {{pcaData[col]}}
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                -->
+                                                        </div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Note: Factor Loading.
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="review-selected-data" [hidden]="!viewFactorScoreCoefficientsVariables">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+                                        <div *ngIf='showFactorScoreCoefficientsVariables' class="main-data-container">
+                                                <div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Factor Score Coefficients :
+
+                                                        </div>
+                                                        <div id="contentscroll" class="container">
+
+
+                                                                <table class="table table-bordered">
+                                                                        <tbody>
+                                                                                <tr *ngFor="let pcaData of listofListsPCAData_4_FactorScoreCoefficientsVariables">
+
+                                                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                                                {{pcaData.Col0}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col1)}">
+                                                                                                {{pcaData.Col1}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col2)}">
+                                                                                                {{pcaData.Col2}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col3)}">
+                                                                                                {{pcaData.Col3}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 3 ' class="data-feild" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col4)}">
+                                                                                                {{pcaData.Col4}}
+                                                                                        </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                        </div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Note: Factor Score Coefficients.
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="review-selected-data" [hidden]="!viewStructuralDimensions">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+
+                                        <div *ngIf='showStructuralDimensions' class="main-data-container">
+                                                <div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Structural Dimensions :
+
+                                                        </div>
+                                                        <div id="contentscroll_structure" class="container">
+
+
+                                                                <table class="table table-bordered">
+                                                                        <tbody>
+                                                                                <tr *ngFor="let pcaData of listofListsPCAData_5_StructuralDimensions">
+
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                                                {{pcaData.Col0}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px"  [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col1)}">
+                                                                                                {{pcaData.Col1}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px"  [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col2)}">
+                                                                                                {{pcaData.Col2}}
+                                                                                        </td>
+                                                                                        <td class="data-feild"  width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col3)}">
+                                                                                                {{pcaData.Col3}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col4)}">
+                                                                                                {{pcaData.Col4}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col5)}">
+                                                                                                {{pcaData.Col5}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col6)}">
+                                                                                                {{pcaData.Col6}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col7)}">
+                                                                                                {{pcaData.Col7}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col8)}">
+                                                                                                {{pcaData.Col8}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col9)}">
+                                                                                                {{pcaData.Col9}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col10)}">
+                                                                                                {{pcaData.Col10}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col11)}">
+                                                                                                {{pcaData.Col11}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col12)}">
+                                                                                                {{pcaData.Col12}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col13)}">
+                                                                                                {{pcaData.Col13}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col14)}">
+                                                                                                {{pcaData.Col14}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col15)}">
+                                                                                                {{pcaData.Col15}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col16}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col17)}">
+                                                                                                {{pcaData.Col17}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col18)}">
+                                                                                                {{pcaData.Col18}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col19)}">
+                                                                                                {{pcaData.Col19}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col20)}">
+                                                                                                {{pcaData.Col20}}
+                                                                                        </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                        </div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Note: Structural Dimensions.
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="review-selected-data" [hidden]="!viewNearestNeighbourCases">
+                                <hr class="hr-level-1" />
+                                <div class="view-results-1d">
+
+                                        <div *ngIf='showNearestNeighbourCases' class="main-data-container">
+                                                <div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Nearest Neighbour Cases:
+
+                                                        </div>
+                                                        <div id="contentscroll_neighbor" class="container">
+
+
+                                                                <table class="table table-bordered">
+                                                                        <tbody>
+                                                                                <tr *ngFor="let pcaData of listofListsPCAData_5_NearestNeigborCases">
+
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col0)}">
+                                                                                                {{pcaData.Col0}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col1)}">
+                                                                                                {{pcaData.Col1}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col2)}">
+                                                                                                {{pcaData.Col2}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col3)}">
+                                                                                                {{pcaData.Col3}}
+                                                                                        </td>
+                                                                                        <td class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col4)}">
+                                                                                                {{pcaData.Col4}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col5)}">
+                                                                                                {{pcaData.Col5}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col6)}">
+                                                                                                {{pcaData.Col6}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col7)}">
+                                                                                                {{pcaData.Col7}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col8)}">
+                                                                                                {{pcaData.Col8}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col9)}">
+                                                                                                {{pcaData.Col9}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 1 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col10)}">
+                                                                                                {{pcaData.Col10}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col11)}">
+                                                                                                {{pcaData.Col11}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col12)}">
+                                                                                                {{pcaData.Col12}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col13)}">
+                                                                                                {{pcaData.Col13}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col14)}">
+                                                                                                {{pcaData.Col14}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col15)}">
+                                                                                                {{pcaData.Col15}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col16)}">
+                                                                                                {{pcaData.Col16}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col17)}">
+                                                                                                {{pcaData.Col17}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col18)}">
+                                                                                                {{pcaData.Col18}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col19)}">
+                                                                                                {{pcaData.Col19}}
+                                                                                        </td>
+                                                                                        <td *ngIf='pcaNumberOfPCsCalculatedValue > 2 ' class="data-feild" width="100px" [ngStyle]="{'background-color': getHeaderOrTitleBackColor(pcaData.Col20)}">
+                                                                                                {{pcaData.Col20}}
+                                                                                        </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                        </div>
+                                                        <div title class="table-title" style="width:100%">
+                                                                <i class="dropdown icon"></i>
+                                                                Note: Nearest Neighbour Cases.
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <hr />
+                </div>
+                <ng-template #dataLoadingView>
+                        <h3>Data Loading ...</h3>
+                </ng-template>
+
+        </div>
+        <ng-template #selectDataView>
+                <app-site-sub-nav-pca></app-site-sub-nav-pca>
+                <app-multi-d-data-select-api [numberOfDimensionFromParent]='numberOfDimensionFromParent' [isPCAFromParent]='isPCAFromParent' [selectedDataOptions]='selectedDataOptions'
+                        (sendSelectedDataSet)='getSelectedDataSet($event)' (sendSelectedApiData)='getSelectedApiData($event)' (submitSelectData)='submit_select_data($event)'></app-multi-d-data-select-api>
+        </ng-template>
+</div>

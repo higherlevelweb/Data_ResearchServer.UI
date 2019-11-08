@@ -1,0 +1,174 @@
+<div class="chart-page-container" class="full-page-width-view">
+        <h1>1D Chart</h1>
+
+        <div *ngIf="loadChartView; else selectDataView">
+                <div *ngIf="chartDataLoaded; else dataLoadingView" id="data-chart-view">
+                        <div class="chart-main-title">{{selectedBodyMeasure}}</div>
+                        <app-chart [chartData]="chart_data_y" [chartLabels]="chart_data_x" [selectedDataSet]="selectedDataOptions"></app-chart>
+                        <app-slider [percentileMeasureValues1]="percentileMeasureValuesPlot1" [percentileMeasureValues2]="percentileMeasureValuesPlot2"
+                                [selectedDataSet]="selectedDataOptions"></app-slider>
+                        <hr />
+                        <div class="main-data-container">
+                                <div title class="table-title">
+                                        <i class="dropdown icon"></i>
+                                        Data Statistics - (Plot 1):
+                                </div>
+                                <div content class="table-content">
+                                        <table>
+                                                <tr>
+                                                        <td class="data-title">
+                                                                Min
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Max
+                                                        </td>
+                                                        <td class="data-title">
+                                                                n
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Avg
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Std Dev
+                                                        </td>
+                                                        <td class="data-title">
+                                                                SE
+                                                        </td>
+                                                        <td class="data-title">
+                                                                skew
+                                                        </td>
+                                                        <td class="data-title">
+                                                                kurt
+                                                        </td>
+                                                        <td class="data-title">
+                                                                CV
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Norm
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Min}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Max}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1N}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Avg}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1StdDev}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Sem}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Skew}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Kurt}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1CV}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot1Norm}}
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </div>
+                        </div>
+
+                        <div *ngIf='plotSecondDemographics' class="main-data-container">
+
+                                <div title class="table-title">
+                                        <i class="dropdown icon"></i>
+                                        Data Statistics - (Plot 2):
+                                </div>
+                                <div content class="table-content">
+                                        <table>
+                                                <tr>
+                                                        <td class="data-title">
+                                                                Min
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Max
+                                                        </td>
+                                                        <td class="data-title">
+                                                                n
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Avg
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Std Dev
+                                                        </td>
+                                                        <td class="data-title">
+                                                                SE
+                                                        </td>
+                                                        <td class="data-title">
+                                                                skew
+                                                        </td>
+                                                        <td class="data-title">
+                                                                kurt
+                                                        </td>
+                                                        <td class="data-title">
+                                                                CV
+                                                        </td>
+                                                        <td class="data-title">
+                                                                Norm
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Min}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Max}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2N}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Avg}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2StdDev}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Sem}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Skew}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Kurt}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2CV}}
+                                                        </td>
+                                                        <td class="data-feild">
+                                                                {{histogramStatisticsPlot2Norm}}
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </div>
+                        </div>
+
+                        <hr />
+                        <button type="button" class="btn btn-success" (click)="AnalyzeNewData()">Analyze New User Data</button>
+                </div>
+                <ng-template #dataLoadingView>
+                        <h3>Data Loading ...</h3>
+                </ng-template>
+
+        </div>
+
+        <ng-template #selectDataView>
+                <app-data-select-api (sendSelectedDataSet)='getSelectedDataSet($event)' (sendSelectedApiData)='getSelectedApiData($event)'></app-data-select-api>
+        </ng-template>
+</div>

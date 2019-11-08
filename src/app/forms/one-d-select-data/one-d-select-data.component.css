@@ -1,0 +1,290 @@
+
+.control-label {
+    font-weight: bold;
+}
+
+.form-group-colums, .form-group-colums-sub {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.form-group-colums-sub {
+    margin-bottom: 25px;
+}
+
+.form-group-select-dataset {
+    float: left;
+}
+
+.form-group-colums-left {
+    display: block;
+    width: 40%;
+    float: left;
+}
+
+.form-group-colums-right {
+    display: block;
+    width: 55%;
+    float: right;
+}
+
+.form-group-body-measures {
+    display: block;
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+.form-group-units {
+    width: 32%;
+    float: right;
+    margin-top: 20px;
+}
+
+.form-group-units .form-group-item {
+    float: left;
+    margin: 5px 10px 0 -5px;
+}
+
+.form-group-bin-options{
+    display: block;
+    width: 10%;
+    float: right;
+}
+
+.form-group-bin-options .form-control{
+    width:90%;
+}
+
+.form-group-agegroups{
+    display: block;
+}
+
+.form-group-sex {
+    display: block;
+
+}
+
+.form-group-language {
+    display: block;
+    float: right;
+    width: 50%;
+}
+
+.form-group-services{
+    display: block;
+}
+
+.form-group-trades-branches {
+    display: block;
+}
+
+.form-group-components{
+    display: block;
+}
+
+.form-group-handedness {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.form-group-visions-corrected {
+    display: block;
+
+}
+
+.result-type-demographic-plot2 {
+    display:none;
+}
+
+.result-type-demographic-plot2.plot2active {
+    display:block;
+}
+
+.form-group-show-ellipse-option {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+
+.form-group-calculate-manikins-option {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.form-group-accomodation-option {
+    width: 43%;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+
+.form-group-colums, .form-group-colums-sub {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.form-group-colums-sub {
+    margin-bottom: 25px;
+}
+
+.form-group-colums-left {
+    display: block;
+    width: 40%;
+    float: left;
+}
+
+.form-group-colums-right {
+    display: block;
+    width: 55%;
+    float: right;
+}
+
+.form-group-body-measures {
+    display: block;
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+.form-group-units {
+    width: 32%;
+    float: right;
+}
+
+.form-group-units .form-group-item {
+    float: left;
+    margin: 5px 10px 0 -5px;
+}
+
+.form-group-bin-options{
+    display: block;
+    width: 10%;
+    float: right;
+}
+
+.form-group-bin-options .form-control{
+    width:90%;
+}
+
+.form-group-agegroups{
+    display: block;
+}
+
+.form-group-sex {
+    display: block;
+
+}
+
+.form-group-language {
+    display: block;
+    float: right;
+    width: 50%;
+}
+
+.form-group-services{
+    display: block;
+}
+
+.form-group-trades-branches {
+    display: block;
+}
+
+.form-group-components{
+    display: block;
+}
+
+.form-group-handedness {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.form-group-visions-corrected {
+    display: block;
+
+}
+
+.review-data-table{
+    width: 100%;
+}
+
+.review-data-table-title-row{   
+    font-weight: 600;
+    height: 37px;
+    vertical-align: bottom;
+}
+
+.review-data-table-cell{
+    width: 170px;
+}
+
+.review-data-table-title{
+    font-weight: 600;
+    text-decoration: underline;
+    height: 50px;  
+}
+
+.result-cell-span {
+    display:block;
+    margin-right: 35px;
+}
+
+.form-group-calculate-manikins-definitions label{
+    font-size: 16px;
+}
+
+.form-group-calculate-manikins-definitions {
+    width: 230px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.review-data-table-cell-md {
+    display: block;
+    width: 400px;
+    padding-right: 45px;
+}
+
+.review-data-table-options {
+    margin-top: 25px;
+}
+
+.demographic-table-2 {
+    float:right;
+    width: 55%;
+    border-left: 1px solid #bbb;
+    padding-left: 80px;
+    margin-top:30px;
+}
+
+.review-data-table-demographic {
+    margin-top:30px;
+}
+
+.review-data-table-demographic-2 {
+    margin-top:0px;
+}
+
+.review-data-table-demographics-title {
+    font-weight:bold;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.review-data-table-title-demographics-row{
+    vertical-align: top;
+    height: 37px;
+}
+
+.table-full{
+    width:100%;
+}

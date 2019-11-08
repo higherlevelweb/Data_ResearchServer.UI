@@ -1,0 +1,43 @@
+.chart-container {
+    display: block;
+}
+
+.chart-data-table{ 
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.chart_select_menu{
+    font-weight: bold;
+    margin: 10px;
+}
+
+.chart_display_title {
+    font-weight: bold;
+}
+
+.chart_display_bins {
+    float:right;
+    margin-right: 10px;
+}
+
+.table-data-header{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.table-data-header-title{
+    font-weight: bold;
+}
+
+.chart_title_units{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.chart_display_title_units {
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+<header>
+    <div id="wb-bar">
+        <div id="language-selector">
+            <label>
+                {{ 'SITE-HEADER.SELECT' | translate }}: 
+                <select #langSelect (change)="translate.use(langSelect.value)">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="wb-sttl" class="col-md-5"><a routerLink="/"><span>{{ 'SITE-HEADER.TITLE' | translate }}</span></a></div>
+        </div>
+    </div>
+</header>

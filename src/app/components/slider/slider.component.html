@@ -1,0 +1,29 @@
+<div *ngIf="percentileMeasureValues1" class="chart-percentile-slider chart-percentile-slider-1">
+    <div>
+        <div class="chart-percentile-slider-title-right">{{bodyMeasureTitle}}:
+            <span class="slider-percentile-value">{{percentileMeasureValues1[percentileIndexValue1-1]}}</span>
+        </div>
+        <div class="chart-percentile-slider-title-left">
+            <span *ngIf="plotSecondDemographics">Plot 1 </span>Percentiles:
+            <input #sliderInput1 (keyup)="updateSelectedPercentile1(sliderInput1.value)" [(ngModel)]="percentileIndexValue1" required>
+        </div>
+    </div>
+    <nouislider [min]="percentileSliderMin" [max]="percentileSliderMax" [step]="1" [(ngModel)]="percentileIndexValue1" [disabled]="disabled"
+        (end)="updateSelectedPercentile1($event)">
+    </nouislider>
+</div>
+
+<div *ngIf="plotSecondDemographics" class="chart-percentile-slider chart-percentile-slider-2">
+    <div>
+        <div class="chart-percentile-slider-title-right">{{bodyMeasureTitle}}:
+            <span class="slider-percentile-value">{{percentileMeasureValues2[percentileIndexValue2-1]}}</span>
+        </div>
+        <div class="chart-percentile-slider-title-left">
+            <span *ngIf="plotSecondDemographics">Plot 2 </span>Percentiles:
+            <input #sliderInput2 (keyup)="updateSelectedPercentile2(sliderInput2.value)" [(ngModel)]="percentileIndexValue2" required>
+        </div>
+    </div>
+    <nouislider [min]="percentileSliderMin" [max]="percentileSliderMax" [step]="1" [(ngModel)]="percentileIndexValue2" [disabled]="disabled"
+        (end)="updateSelectedPercentile2($event)">
+    </nouislider>
+</div>

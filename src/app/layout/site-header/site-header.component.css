@@ -1,0 +1,54 @@
+#wb-bar #wb-lng h2 { display: none; }
+
+#wb-bar {
+    line-height: 1;
+    background: #000;
+    min-height: 2.6em;
+    text-align: right;
+}
+
+#wb-bar ul#gc-bar {
+    padding-top: 12px;
+    padding-right: 50px;
+}
+
+#wb-lng a {
+    border-left: 1px solid #FFF;
+    padding: 0 .5em;
+}
+
+#wb-bar a {
+    color: #fff;
+    float: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+#wb-sttl {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: table-row;
+}
+
+.col-md-5 {
+    width: 41.6666666667%;
+}
+
+#wb-sttl a {
+    font-size: 1.9em;
+    text-shadow: 1px 1px 1px #333;
+    display: table-cell;
+    vertical-align: middle;
+    height: 3.6em;
+    color: #FFF!important;
+}
+
+#wb-sttl a:link, #wb-sttl a:visited {
+    text-decoration: none;
+}

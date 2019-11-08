@@ -1,0 +1,441 @@
+<div *ngIf="dataSelectionView; else dataLoadingView">
+  <div [hidden]="reviewData">
+    <h1>Select Data</h1>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group form-group-select-dataset">
+        <label for="datasets" class="control-label">Dataset: </label>
+        <select class="form-control" id="datasets" [(ngModel)]="selected_dataset" name="datasets">
+          <option *ngFor="let ds of datasets" value="{{ds}}">{{ds}}</option>
+        </select>
+
+      </div>
+
+      <div *ngIf="numberOfDimensionFromParent ==1" class="form-group form-group-bin-options">
+        <label for="bin_options" class="control-label">Bins #: </label>
+        <select class="form-control" id="bin_options" [(ngModel)]="selected_bins" name="bin_options">
+          <option *ngFor="let bo of bin_options" value="{{bo}}">{{bo}}</option>
+        </select>
+      </div>
+
+      <div class="form-group form-group-units">
+        <label for="units" class="control-label">Units: </label>
+        <br />
+        <div *ngFor="let ut of units" class="form-group-item">
+          <input type="radio" value="{{ut}}" name="units" [(ngModel)]="selected_unit">{{ut}}
+        </div>
+      </div>
+      <hr>
+      <div *ngIf="isPCAFromParent != 'true'" class="form-group form-group-body-measures">
+        <label for="datasets" class="control-label">Body Measure 1: </label>
+        <select class="form-control" id="body_measures" [(ngModel)]="selected_body_measure" name="body_measures">
+          <optgroup label="Whole Body">
+            <option *ngFor="let bm of body_measures | callback: bmFilterWholeBody" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Head/Neck">
+            <option *ngFor="let bm of body_measures | callback: bmFilterHeadNeck" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Seated">
+            <option *ngFor="let bm of body_measures | callback: bmFilterSeated" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Torso">
+            <option *ngFor="let bm of body_measures | callback: bmFilterTorso" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Hand/Arm">
+            <option *ngFor="let bm of body_measures | callback: bmFilterHandArm" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Leg Foot">
+            <option *ngFor="let bm of body_measures | callback: bmFilterLegFoot" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+        </select>
+      </div>
+      <div *ngIf="numberOfDimensionFromParent > 1  && isPCAFromParent != 'true'" class="form-group form-group-body-measures">
+        <label for="datasets" class="control-label">Body Measure 2: </label>
+        <select class="form-control" id="body_measures_2" [(ngModel)]="selected_body_measure_2" name="body_measures_2">
+          <optgroup label="Whole Body">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterWholeBody" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Head/Neck">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterHeadNeck" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Seated">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterSeated" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Torso">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterTorso" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Hand/Arm">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterHandArm" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Leg Foot">
+            <option *ngFor="let bm of body_measures_2 | callback: bmFilterLegFoot" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+        </select>
+      </div>
+      <div *ngIf="numberOfDimensionFromParent > 2 && isPCAFromParent != 'true'" class="form-group form-group-body-measures">
+        <label for="datasets" class="control-label">Body Measure 3: </label>
+        <select class="form-control" id="body_measures_3" [(ngModel)]="selected_body_measure_3" name="body_measures_3">
+          <optgroup label="Whole Body">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterWholeBody" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Head/Neck">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterHeadNeck" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Seated">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterSeated" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Torso">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterTorso" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Hand/Arm">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterHandArm" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+          <optgroup label="Leg Foot">
+            <option *ngFor="let bm of body_measures_3 | callback: bmFilterLegFoot" value="{{bm.value}}">{{bm.display}}</option>
+          </optgroup>
+        </select>
+      </div>
+      <div *ngIf="isPCAFromParent === 'true'" class="form-group-calculate-pca">
+        <label for="datasets" class="control-label">Body Measures: </label>
+        <ng-multiselect-dropdown [placeholder]="'Select Options'" [data]="body_measures_multi" [(ngModel)]="selected_body_measures"
+          [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
+
+      </div>
+      <hr>
+      <h3>Demographics<span *ngIf="plot_second_demographics"> (Plot 1)</span>:</h3>
+      <div class="form-group-colums">
+        <div class="form-group-colums-left">
+          <div class="form-group form-group-language">
+            <label for="language" class="control-label">Language: </label>
+            <div *ngFor="let lang of languages" class="form-group-item">
+              <input type="radio" value="{{lang.value}}" name="languages" [(ngModel)]="selected_language">{{lang.display}}
+            </div>
+          </div>
+          <div class="form-group form-group-sex">
+            <label for="sexes" class="control-label">Sex: </label>
+            <div *ngFor="let sex of sexes" class="form-group-item">
+              <input type="radio" value="{{sex.value}}" name="sexes" [(ngModel)]="selected_sex">{{sex.display}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group-colums-right">
+          <div class="form-group form-group-services">
+            <label for="services" class="control-label">Services: </label>
+            <ng-multiselect-dropdown [placeholder]="'* Services Selection Required'" [data]="services" [(ngModel)]="selected_services"
+              [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+          </div>
+          <div class="form-group form-group-agegroups">
+            <label for="agegroups" class="control-label">Age Groups: </label>
+            <ng-multiselect-dropdown [placeholder]="'* Age Groups Selection Required'" [data]="agegroups" [(ngModel)]="selected_agegroups"
+              [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+          </div>
+        </div>
+      </div>
+      <div class="form-group-colums-sub">
+        <div class="form-group-colums-left">
+          <div class="form-group form-group-handedness">
+            <label for="hand" class="control-label">Handedness: </label>
+            <div *ngFor="let hand of preferred_hands" class="form-group-item">
+              <input type="radio" value="{{hand.value}}" name="hands" [(ngModel)]="selected_preferred_hand">{{hand.display}}
+            </div>
+          </div>
+          <div class="form-group form-group-visions-corrected">
+            <label for="visions_corrected" class="control-label">Vision Corrected: </label>
+            <div *ngFor="let vc of visions_corrected" class="form-group-item">
+              <input type="radio" value="{{vc.value}}" name="visions_corrected" [(ngModel)]="selected_vision_corrected">{{vc.display}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group-colums-right">
+          <div class="form-group form-group-trades-branches">
+            <label for="trades_branches">Trades/Branch: </label>
+            <ng-multiselect-dropdown [placeholder]="'* Trades/Branches Selection Required'" [data]="trades_branches" [(ngModel)]="selected_trades_branches"
+              [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+          </div>
+          <div class="form-group form-group-components">
+            <label for="components" class="control-label">Components: </label>
+            <ng-multiselect-dropdown [placeholder]="'* Components Selection Required'" [data]="component_types" [(ngModel)]="selected_components"
+              [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="numberOfDimensionFromParent < 3" class="form-group-second-plot-option">
+        <label for="plotSecondDemographics" class="control-label">Plot Overlay: </label>
+        <input type="checkbox" [(ngModel)]="plot_second_demographics" [ngModelOptions]="{standalone: true}" (change)="setSecondDemographics()"
+        />
+      </div>
+      <div *ngIf="plot_second_demographics && numberOfDimensionFromParent < 3">
+        <h3>Demographics Overlay<span *ngIf="plot_second_demographics"> (Plot 2)</span>:</h3>
+        <div class="form-group-colums">
+          <div class="form-group-colums-left">
+            <div class="form-group form-group-language">
+              <label for="language" class="control-label">Language: </label>
+              <div *ngFor="let lang of languages" class="form-group-item">
+                <input type="radio" value="{{lang.value}}" name="languages_2" [(ngModel)]="selected_language_2">{{lang.display}}
+              </div>
+            </div>
+            <div class="form-group form-group-sex">
+              <label for="sexes" class="control-label">Sex:</label>
+              <div *ngFor="let sex of sexes" class="form-group-item">
+                <input type="radio" value="{{sex.value}}" name="sexes_2" [(ngModel)]="selected_sex_2">{{sex.display}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group-colums-right">
+            <div class="form-group form-group-services">
+              <label for="services" class="control-label">Services: </label>
+              <ng-multiselect-dropdown [placeholder]="'* Services Selection Required'" [data]="services" [(ngModel)]="selected_services_2"
+                [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+            </div>
+            <div class="form-group form-group-agegroups">
+              <label for="agegroups" class="control-label">Age Groups: </label>
+              <ng-multiselect-dropdown [placeholder]="'* Age groups Selection Required'" [data]="agegroups" [(ngModel)]="selected_agegroups_2"
+                [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="form-group-colums-sub">
+          <div class="form-group-colums-left">
+            <div class="form-group form-group-handedness">
+              <label for="hand" class="control-label">Handedness: </label>
+              <div *ngFor="let hand of preferred_hands" class="form-group-item">
+                <input type="radio" value="{{hand.value}}" name="hands_2" [(ngModel)]="selected_preferred_hand_2">{{hand.display}}
+              </div>
+            </div>
+            <div class="form-group form-group-visions-corrected">
+              <label for="visions_corrected" class="control-label">Vision Corrected: </label>
+              <div *ngFor="let vc of visions_corrected" class="form-group-item">
+                <input type="radio" value="{{vc.value}}" name="visions_corrected_2" [(ngModel)]="selected_vision_corrected_2">{{vc.display}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group-colums-right">
+            <div class="form-group form-group-trades-branches">
+              <label for="trades_branches">Trades/Branch: </label>
+              <ng-multiselect-dropdown [placeholder]="'* Trades/Branches Selection Required'" [data]="trades_branches" [(ngModel)]="selected_trades_branches_2"
+                [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+            </div>
+            <div class="form-group form-group-components">
+              <label for="components" class="control-label">Components: </label>
+              <ng-multiselect-dropdown [placeholder]="'* Components Selection Required'" [data]="component_types" [(ngModel)]="selected_components_2"
+                [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="multiDSelection && numberOfDimensionFromParent > 1  && isPCAFromParent != 'true'; else selectDataPlotOptionsView">
+        <hr />
+        <div class="form-group-show-ellipse-option">
+          <label for="showEllipseOption" class="control-label">Show Ellipse: </label>
+          <input type="checkbox" [(ngModel)]="selected_manikin_options.show_ellipse" [ngModelOptions]="{standalone: true}" (change)="setShowEllipseOptions($event)"
+          />
+        </div>
+        <div *ngIf="selected_manikin_options.manikins; else selectManikinOption" class="form-group-calculate-manikins-definitions">
+          <label for="datasets" class="control-label">Manikin Definitions: </label>
+          <input type="checkbox" [(ngModel)]="selected_manikin_options.manikins" [ngModelOptions]="{standalone: true}" (change)="setShowCalculateManikinsOptions($event)"
+          />
+          <ng-multiselect-dropdown [placeholder]="'Select Options'" [data]="manikin_definitions" [(ngModel)]="selected_manikin_definitions"
+            [settings]="multiSelectSettings" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
+        </div>
+        <ng-template #selectManikinOption>
+          <div class="form-group-calculate-manikins-option">
+            <label for="calculateManikinsOption" class="control-label">Calculate Manikins: </label>
+            <input type="checkbox" [(ngModel)]="selected_manikin_options.manikins" [ngModelOptions]="{standalone: true}" (change)="setShowCalculateManikinsOptions($event)"
+            />
+          </div>
+        </ng-template>
+        <div *ngIf="show_accomodation_option && isPCAFromParent != 'true'" class="form-group-accomodation-option">
+          <label for="showAccomodationOption" class="control-label">Accomodation Percentage: </label> {{selected_accomodation}}
+          <nouislider [min]="5" [max]="100" [step]="1" [(ngModel)]="selected_accomodation" [disabled]="disabled" [ngModelOptions]="{standalone: true}"
+            (end)="updateSelectedAccomodation($event)">
+          </nouislider>
+        </div>
+      </div>
+      <hr />
+      <button type="button" class="btn btn-success" (click)="reviewSelectData()">Review Selected Data</button>
+      <button type="submit" class="btn btn-success">{{buttonSubmitText}}</button>
+      <span class="form-validation-msg" [ngClass]="{ 'form-validate-msg-show': formValidationError }">
+        * {{formValidationMsg}}</span>
+    </form>
+  </div>
+
+  <div class="view-results-1d" [hidden]="!reviewData">
+    <h2>You are submitting the following:</h2>
+    <table class="review-data-table">
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Dataset: </td>
+        <td class="review-data-table-cell">Units: </td>
+        <td class="review-data-table-cell"></td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell">{{selectedDatasetDisplay}}</td>
+        <td class="review-data-table-cell">{{selectedUnitsDisplay}}</td>
+        <td class="review-data-table-cell"></td>
+      </tr>
+    </table>
+    <table *ngIf="isPCAFromParent != 'true'" class="review-data-table">
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Body Measure 1: </td>
+        <td class="review-data-table-cell">
+          <span *ngIf="numberOfDimensionFromParent > 1">Body Measure 2: </span>
+        </td>
+        <td class="review-data-table-cell">
+          <span *ngIf="numberOfDimensionFromParent > 2">Body Measure 3: </span>
+        </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell">{{selectedBodyMeasureDisplay}}</td>
+        <td class="review-data-table-cell">
+          <span *ngIf="numberOfDimensionFromParent > 1">{{selectedBodyMeasureDisplay2}} </span>
+        </td>
+        <td class="review-data-table-cell">
+          <span *ngIf="numberOfDimensionFromParent > 2">{{selectedBodyMeasureDisplay3}} </span>
+        </td>
+      </tr>
+    </table>
+    <table *ngIf="isPCAFromParent == 'true'" class="review-data-table">
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Body Measures: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell" [innerHTML]="selectedBodyMeasuresDisplay"></td>
+      </tr>
+    </table>
+    <div *ngIf="plot_second_demographics" class="demographic-table-2">
+      <table class="review-data-table-demographic-2">
+        <tr class="review-data-table-title-demographics-row">
+          <td class="review-data-table-demographics-title" colspan="2">Demographics 2: </td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell">Sex: </td>
+          <td class="review-data-table-cell">Language: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell">{{selectedSexDisplay2}}</td>
+          <td class="review-data-table-cell">{{selectedLanguageDisplay2}}</td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell" colspan="2">Age Groups: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell" colspan="2">
+            <span class="result-cell-span" [innerHTML]="selectedAgegroupsDisplay2"></span>
+          </td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell" colspan="2">Services: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell" colspan="2">
+            <span class="result-cell-span" [innerHTML]="selectedServicesDisplay2"></span>
+          </td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell" colspan="2">Trades/Branches: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell" colspan="2">
+            <span class="result-cell-span" [innerHTML]="selectedTradesBranchesDisplay2"></span>
+          </td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell" colspan="2">Components: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell" colspan="2">
+            <span class="result-cell-span" [innerHTML]="selectedComponentsDisplay2"></span>
+          </td>
+        </tr>
+        <tr class="review-data-table-title-row">
+          <td class="review-data-table-cell">Preferred Hand: </td>
+          <td class="review-data-table-cell">Vision Corrected: </td>
+        </tr>
+        <tr class="review-data-table-result-row">
+          <td class="review-data-table-cell">{{selectedPreferredHandDisplay2}}</td>
+          <td class="review-data-table-cell">{{selectedVisionCorrectedDisplay2}}</td>
+        </tr>
+      </table>
+    </div>
+    <table class="review-data-table-demographic" [ngClass]="{ 'table-full': !plot_second_demographics }">
+      <tr class="review-data-table-title-demographics-row">
+        <td class="review-data-table-demographics-title" colspan="2">Demographics 1: </td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Sex: </td>
+        <td class="review-data-table-cell">Language: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell">{{selectedSexDisplay}}</td>
+        <td class="review-data-table-cell">{{selectedLanguageDisplay}}</td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell" colspan="2">Age Groups: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell" colspan="2">
+          <span class="result-cell-span" [innerHTML]="selectedAgegroupsDisplay"></span>
+        </td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell" colspan="2">Services: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell" colspan="2">
+          <span class="result-cell-span" [innerHTML]="selectedServicesDisplay"></span>
+        </td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell" colspan="2">Trades/Branches: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell" colspan="2">
+          <span class="result-cell-span" [innerHTML]="selectedTradesBranchesDisplay"></span>
+        </td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell" colspan="2">Components: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell" colspan="2">
+          <span class="result-cell-span" [innerHTML]="selectedComponentsDisplay"></span>
+        </td>
+      </tr>
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Preferred Hand: </td>
+        <td class="review-data-table-cell">Vision Corrected: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell">{{selectedPreferredHandDisplay}}</td>
+        <td class="review-data-table-cell">{{selectedVisionCorrectedDisplay}}</td>
+      </tr>
+    </table>
+    <table *ngIf="numberOfDimensionFromParent > 1" class="review-data-table review-data-table-options">
+      <tr class="review-data-table-title-row">
+        <td class="review-data-table-cell">Show Ellipse: </td>
+        <td *ngIf="!selected_manikin_options.manikins; else showManikinDefinitionsTitle" class="review-data-table-cell">Calculate Manikins: </td>
+        <ng-template #showManikinDefinitionsTitle>
+          <td class="review-data-table-cell">Manikins Definitions: </td>
+        </ng-template>
+        <td class="review-data-table-cell">Accomodation: </td>
+      </tr>
+      <tr class="review-data-table-result-row">
+        <td class="review-data-table-cell">{{selected_manikin_options.show_ellipse}}</td>
+        <td *ngIf="!selected_manikin_options.manikins; else showManikinDefinitionsResults" class="review-data-table-cell-md" colspan="2">{{selected_manikin_options.manikins}}</td>
+        <ng-template #showManikinDefinitionsResults>
+          <td class="review-data-table-cell-md" colspan="2" [innerHTML]="selectedManikinDefinitionsDisplay">{{selectedManikinDefinitionsDisplay}}</td>
+        </ng-template>
+        <td class="review-data-table-cell">{{selected_accomodation}}</td>
+      </tr>
+    </table>
+    <hr />
+    <button class="btn btn-primary" (click)="reviewData=false">
+      < Edit Selection Data</button>
+        <button type="submit" class="btn btn-success" (click)="onSubmit()">{{buttonSubmitText}}</button>
+  </div>
+</div>
+
+<ng-template #dataLoadingView>
+  <div>
+    <h4>Data Loading...</h4>
+  </div>
+</ng-template>

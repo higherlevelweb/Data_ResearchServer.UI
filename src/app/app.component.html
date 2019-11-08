@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-site-header></app-site-header>
+
+<div id="main-page" class="container">
+  <app-site-nav></app-site-nav>
+  <div *ngIf="router.url === '/'; else loadPage">
+    <app-home></app-home>
+  </div>
+  <ng-template #loadPage>
+    <app-page></app-page>
+  </ng-template>
+</div>
+  
+<app-site-footer></app-site-footer>

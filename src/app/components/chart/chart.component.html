@@ -1,0 +1,24 @@
+<div class="chart-container">
+  <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [chartType]="chartType" [options]="chartOptions"></canvas>
+</div> 
+
+<div class="chart_display_bins">
+  <span class="chart_display_title">Bins #:</span> {{binsDisplay}}
+</div>
+
+<div class="chart_title_units">
+    <span class="chart_display_title_units">{{bodyMeasureDisplay}} - </span> {{chartUnitsSelectedDisplay}}
+  </div>
+
+<div class="table-data">
+  <div class="table-data-header">
+    <span class="table-data-header-title">Bin Frequencies - </span>{{unitDisplay}} Units</div>
+  <table class="chart-data-table">
+    <tr>
+      <th *ngFor="let label of chartLabels">{{label}}</th>
+    </tr>
+    <tr *ngFor="let d of chartData">
+      <td *ngFor="let label of chartLabels; let j=index">{{d && d.data[j]}}</td>
+    </tr>
+  </table>
+</div>

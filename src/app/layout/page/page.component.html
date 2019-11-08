@@ -1,0 +1,4 @@
+<app-site-sub-nav *ngIf="showSubNav"></app-site-sub-nav>
+<div id="app-page" [ngClass]="{ 'full-page-view': !showSubNav }">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>

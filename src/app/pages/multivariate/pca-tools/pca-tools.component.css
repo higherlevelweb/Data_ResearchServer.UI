@@ -1,0 +1,28 @@
+#contentscroll {
+    overflow-y:scroll;
+    overflow-x:scroll;
+    height:auto;
+    max-height:500px;
+    border:1px solid rgb(139, 137, 137);
+    max-width:100%;
+    width:auto;
+  }
+
+  #contentscroll_structure {
+    overflow-y:scroll;
+    overflow-x:scroll;
+    height:auto;
+    max-height:500px;
+    border:1px solid rgb(139, 137, 137);
+    max-width:100%;
+    width:auto;
+  }
+  #contentscroll_neighbor {
+    overflow-y:scroll;
+    overflow-x:scroll;
+    height:auto;
+    max-height:500px;
+    border:1px solid rgb(139, 137, 137);
+    max-width:100%;
+    width:auto;
+  }
