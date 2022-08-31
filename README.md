@@ -1,6 +1,10 @@
-# R2MR Research Server User Interface
+# Data Research Server User Interface
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+
+## Description
+
+This is an Angular 2+ application that provides a user interface to collect user data research options through interactive forms.
 
 ## Development server
 
