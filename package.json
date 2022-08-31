@@ -1,5 +1,5 @@
 {
-  "name": "r2mr-user-research-server-app",
+  "name": "data-research-server-ui-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
