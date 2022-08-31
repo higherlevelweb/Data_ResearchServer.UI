@@ -1,8 +1,8 @@
 <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg"><h2>Secondary menu</h2>
   <ul class="list-group menu list-unstyled">
-    <li [routerLinkActive]="'active-list-group'"><a class="list-group-item item" [routerLink]="['overview']">Overview</a>
+    <li [routerLinkActive]="'active-list-group'"><a class="list-group-item item" [routerLink]="['overview']">{{ 'OVERVIEW.TITLE-MAIN' | translate }}</a>
       <ul class="list-group list-unstyled" id="overview">
-        <li><a class="list-group-item" routerLink="overview/information">Information and Use Cases</a></li>
+        <li><a class="list-group-item" routerLink="overview/information">{{ 'INFORMATION.TITLE-MAIN' | translate }}</a></li>
       </ul>
     </li>
     <li [routerLinkActive]="'active-list-group'"><a class="list-group-item item" [routerLink]="['analyze']">Analyze</a>

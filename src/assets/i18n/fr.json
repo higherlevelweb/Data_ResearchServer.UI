@@ -6,15 +6,27 @@
     "TITLE": "Outils anthropométriques basés sur le Web",
     "SELECT": "Changer la langue"
   },
+  "SITE-NAVIGATION": {
+    "LINK-1": "Présentation de l'interface utilisateur du serveur de recherche de données",
+    "LINK-2": "Analyse des données"
+  },
   "SITE-SUB-NAVIGATION": {
-    "ANALYZE": "analyze",
-    "USER-DATA-NG": "User Data (Ng)-f"
+    "ANALYZE": "analyser",
+    "USER-DATA-NG": "Données"
+  },
+  "PAGE-ANALYZE-1D": {
+    "TITLE": "L'analyse des données"
+  },
+  "OVERVIEW": {
+    "TITLE-MAIN": "Aperçu",
+    "PAR-MAIN": "Dans le cadre de l'engagement du gouvernement à fournir des renseignements et des services en ligne accessibles au public et à maintenir la confiance dans les sites Web du gouvernement du Canada, il a été annoncé que la norme de présentation commune pour Internet 2.0 (CLF 2.0) a été mise en œuvre."
+  },
+  "INFORMATION": {
+    "TITLE-MAIN": "Informations et cas d'utilisation"
   },
   "ANALYZE": {
-    "TITLE-MAIN": "analyze Data - f",
-    "PAR-MAIN": "As part of the Government's commitment to providing accessible online information and services to the public and to maintaining trust and confidence in Government of Canada websites, it was announced in January 2010 that the Common Look and Feel for the Internet 2.0 Standard (CLF 2.0), was being updated.",
-    "PAR1-TITLE": "1D - Histogram - f",
-    "PAR1": "Through collaboration with the Government's Web communities, the current four components of the Common Look and Feel 2.0 standards will be replaced by the following three new components:",
-    "PAR1-LINK": "Begin 1D Analysis - f"
+    "PAR1-TITLE": "L'analyse des données",
+    "PAR1": "Grâce à la collaboration avec les communautés Web du gouvernement, les quatre composantes actuelles des normes Common Look and Feel 2.0 seront remplacées par les trois nouvelles composantes suivantes :",
+    "PAR1-LINK": "Commencer l'analyse des données"
   }
 }

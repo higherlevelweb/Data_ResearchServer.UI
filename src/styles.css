@@ -83,6 +83,7 @@ hr {
 #app-page .full-page-width-view{
     width: 1130px;
     float: right;
+    padding: 1em;
 }
 
 #app-page.page-page-view {
