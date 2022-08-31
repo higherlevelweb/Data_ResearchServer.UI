@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-This is an Angular 2+ application that provides a user interface to collect user data research options through interactive forms.
+This is an Angular 2+ application that provides a user interface for data research analysis options through interactive forms.
 
 ## Development server
 
